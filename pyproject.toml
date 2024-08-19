@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fivaldi_api_client"
+version = "0.0.1"
+authors = [
+  { name="Tried and Tested Development", email="info@triedandtested.dev" },
+]
+description = "A Fivaldi API client"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "requests"
+]
+
+[project.urls]
+Homepage = "https://github.com/tried-and-tested-development/fivaldi-api-client"
+Issues = "https://github.com/tried-and-tested-development/fivaldi-api-client/issues"
