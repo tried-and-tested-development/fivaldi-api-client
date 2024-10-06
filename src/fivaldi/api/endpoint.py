@@ -200,6 +200,18 @@ class CompanyEstateMeterEndpoint(CompanyEndPoint):
         return self._get(endpoint=f'meter-readings/apartments/{apartment_id}')
 
 
+class CompanyEstateRentLedgerEndpoint(CompanyEndPoint):
+
+    def __init__(self, cuid, client):
+        super().__init__(cuid=cuid, client=client)
+
+    def api_root(self):
+        return f"{super().api_root()}/estate-rent-ledger"
+
+    def apartment(self, apartment_id):
+        return self._get(endpoint=f'getReceivablesAndPrepayments/apartments/{apartment_id}')
+
+
 class CompanyPurchasesEndpoint(CompanyEndPoint):
 
     def __init__(self, cuid, client):
@@ -318,6 +330,12 @@ class Company:
     @property
     def estate_meter(self):
         return CompanyEstateMeterEndpoint(
+            self._cuid,
+            client=self._client)
+
+    @property
+    def estate_rent_ledger(self):
+        return CompanyEstateRentLedgerEndpoint(
             self._cuid,
             client=self._client)
 
